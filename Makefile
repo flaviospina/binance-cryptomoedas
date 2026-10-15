@@ -42,7 +42,7 @@ shell: ## Abre um shell dentro do container
 
 # ---- Diagnóstico ------------------------------------------------------------
 show-config: ## Mostra a config efetiva (segredos mascarados)
-	$(FT) show-config --config $(CONFIG) --strategy $(STRATEGY)
+	$(FT) show-config --config $(CONFIG)
 
 list-strategies: ## Lista estratégias disponíveis em user_data/strategies
 	$(FT) list-strategies --config $(CONFIG)

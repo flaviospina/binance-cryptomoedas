@@ -26,6 +26,7 @@ Acompanhamento do projeto. Cada fase só avança com aprovação explícita do F
 - [x] `scripts/backup.sh` (SQLite online backup + configs, retenção 30 dias)
 - [x] `scripts/check-seguranca.sh` (checklist automático antes de subir)
 - [x] `README.md` em português, passo a passo
+- [x] Config e PlaceholderStrategy validados com Freqtrade 2026.9 (`show-config`, `list-strategies`)
 - [ ] Validação na VPS real pelo Flávio (`make up`, `/status` no Telegram, FreqUI pelo túnel)
 
 ## Fase 1 — Dados e estratégias
