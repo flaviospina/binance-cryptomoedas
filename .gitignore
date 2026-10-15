@@ -1,0 +1,47 @@
+# ---- Segredos (NUNCA versionar) ----
+.env
+.env.*
+!.env.example
+*.private.json
+config.private.json
+user_data/config.private.json
+*.pem
+*.key
+
+# ---- Banco de dados do Freqtrade ----
+user_data/*.sqlite
+user_data/*.sqlite-shm
+user_data/*.sqlite-wal
+user_data/*.sqlite-journal
+*.sqlite
+*.sqlite-*
+
+# ---- Logs ----
+user_data/logs/*
+!user_data/logs/.gitkeep
+*.log
+
+# ---- Dados de mercado baixados (grandes; baixe com o script) ----
+user_data/data/*
+!user_data/data/.gitkeep
+
+# ---- Resultados de backtest/hyperopt (grandes; relatórios resumidos vão em docs/) ----
+user_data/backtest_results/*
+!user_data/backtest_results/.gitkeep
+user_data/hyperopt_results/*
+!user_data/hyperopt_results/.gitkeep
+user_data/plot/*
+!user_data/plot/.gitkeep
+
+# ---- Backups locais ----
+backups/
+
+# ---- Python / editor / SO ----
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

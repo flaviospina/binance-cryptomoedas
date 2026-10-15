@@ -1,0 +1,169 @@
+{
+    "$schema": "https://schema.freqtrade.io/schema.json",
+    "bot_name": "bot-cripto",
+    "trading_mode": "spot",
+    "margin_mode": "",
+
+    "dry_run": true,
+    "dry_run_wallet": 1000,
+
+    "stake_currency": "USDT",
+    "stake_amount": "unlimited",
+    "tradable_balance_ratio": 0.99,
+    "max_open_trades": 3,
+    "fiat_display_currency": "BRL",
+    "timeframe": "1h",
+
+    "cancel_open_orders_on_exit": false,
+    "initial_state": "running",
+    "force_entry_enable": false,
+    "process_only_new_candles": true,
+
+    "unfilledtimeout": {
+        "entry": 10,
+        "exit": 10,
+        "exit_timeout_count": 0,
+        "unit": "minutes"
+    },
+
+    "entry_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1,
+        "price_last_balance": 0.0,
+        "check_depth_of_market": {
+            "enabled": false,
+            "bids_to_ask_delta": 1
+        }
+    },
+    "exit_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1
+    },
+
+    "order_types": {
+        "entry": "limit",
+        "exit": "limit",
+        "emergency_exit": "market",
+        "force_entry": "market",
+        "force_exit": "market",
+        "stoploss": "market",
+        "stoploss_on_exchange": true,
+        "stoploss_on_exchange_interval": 60
+    },
+    "order_time_in_force": {
+        "entry": "GTC",
+        "exit": "GTC"
+    },
+
+    "exchange": {
+        "name": "binance",
+        "key": "",
+        "secret": "",
+        "ccxt_config": {},
+        "ccxt_async_config": {},
+        "pair_whitelist": [],
+        "pair_blacklist": [
+            "BNB/.*",
+            "(USDC|TUSD|FDUSD|USDP|DAI|BUSD|USD1|EUR|EURI|TRY|BRL|ARS|GBP|JPY|AEUR)/.*",
+            ".*UP/.*",
+            ".*DOWN/.*",
+            ".*BULL/.*",
+            ".*BEAR/.*",
+            "(WBTC|WBETH|WETH|STETH|CBETH|PAXG|BTTC)/.*",
+            "(LUNA|LUNC|UST|USTC|FTT|SRM)/.*"
+        ]
+    },
+
+    "pairlists": [
+        {
+            "method": "VolumePairList",
+            "number_assets": 20,
+            "sort_key": "quoteVolume",
+            "min_value": 0,
+            "refresh_period": 1800
+        },
+        {
+            "method": "AgeFilter",
+            "min_days_listed": 180
+        },
+        {
+            "method": "PriceFilter",
+            "low_price_ratio": 0.005
+        },
+        {
+            "method": "SpreadFilter",
+            "max_spread_ratio": 0.003
+        },
+        {
+            "method": "RangeStabilityFilter",
+            "lookback_days": 10,
+            "min_rate_of_change": 0.02,
+            "max_rate_of_change": 0.80,
+            "refresh_period": 1800
+        },
+        {
+            "method": "VolatilityFilter",
+            "lookback_days": 10,
+            "min_volatility": 0.0,
+            "max_volatility": 0.70,
+            "refresh_period": 1800
+        }
+    ],
+
+    "telegram": {
+        "enabled": false,
+        "token": "",
+        "chat_id": "",
+        "allow_custom_messages": true,
+        "notification_settings": {
+            "status": "silent",
+            "warning": "on",
+            "startup": "on",
+            "entry": "on",
+            "entry_fill": "on",
+            "entry_cancel": "on",
+            "exit": {
+                "roi": "on",
+                "emergency_exit": "on",
+                "force_exit": "on",
+                "exit_signal": "on",
+                "trailing_stop_loss": "on",
+                "stop_loss": "on",
+                "stoploss_on_exchange": "on",
+                "custom_exit": "on",
+                "partial_exit": "on"
+            },
+            "exit_fill": "on",
+            "exit_cancel": "on",
+            "protection_trigger": "on",
+            "protection_trigger_global": "on",
+            "strategy_msg": "on",
+            "show_candle": "off"
+        },
+        "reload": true,
+        "balance_dust_level": 0.01
+    },
+
+    "api_server": {
+        "enabled": true,
+        "listen_ip_address": "0.0.0.0",
+        "listen_port": 8080,
+        "verbosity": "error",
+        "enable_openapi": false,
+        "jwt_secret_key": "TROQUE-VIA-ENV-FREQTRADE__API_SERVER__JWT_SECRET_KEY",
+        "ws_token": "TROQUE-VIA-ENV-FREQTRADE__API_SERVER__WS_TOKEN",
+        "CORS_origins": [],
+        "username": "TROQUE-VIA-ENV",
+        "password": "TROQUE-VIA-ENV"
+    },
+
+    "internals": {
+        "process_throttle_secs": 5,
+        "heartbeat_interval": 60
+    },
+
+    "dataformat_ohlcv": "feather",
+    "dataformat_trades": "feather"
+}
